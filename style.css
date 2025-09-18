@@ -1,0 +1,261 @@
+/* General Styling */
+:root {
+    --bg-color: #fff0f5; /* Light Lavender Pink */
+    --primary-color: #ff69b4; /* Hot Pink */
+    --card-bg: #ffffff;
+    --text-color: #333;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+.hidden { display: none !important; }
+
+/* Envelope Screen */
+#envelope-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: var(--bg-color);
+}
+.envelope-wrapper { position: relative; }
+.envelope {
+    position: relative;
+    width: 280px;
+    height: 180px;
+    background: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+.envelope:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border-top: 90px solid var(--primary-color);
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+    transform-origin: top;
+    transition: transform 0.5s ease-in-out;
+}
+.envelope-wrapper.open .envelope:before {
+    transform: rotateX(180deg);
+}
+.letter {
+    position: absolute;
+    background: #f8f8f8;
+    width: 260px;
+    height: 160px;
+    top: 10px;
+    left: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--primary-color);
+    transition: top 0.5s ease-in-out;
+}
+.envelope-wrapper.open .letter { top: -90px; }
+#open-btn {
+    margin-top: 30px;
+    padding: 12px 25px;
+    border: none;
+    background: var(--primary-color);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+}
+
+/* Main Content Styling */
+header h1 { color: var(--primary-color); }
+
+.card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: var(--shadow);
+}
+
+/* Slider for Pictures & Playlist */
+.slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    padding-bottom: 15px; /* For scrollbar space */
+}
+/* Hide scrollbar */
+.slider::-webkit-scrollbar { display: none; }
+.slider { -ms-overflow-style: none; scrollbar-width: none; }
+
+.slide, .song-card {
+    flex: 0 0 80%; /* Each item takes up 80% of the container width */
+    scroll-snap-align: center;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #f9f9f9;
+}
+.slide img, .song-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.slide p, .song-card p { margin: 10px; font-size: 14px; }
+
+/* Notes Section */
+.notes-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+.note {
+    background-color: #fffde7;
+    border: 1px solid #fff59d;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+.note:hover { background-color: #fff9c4; }
+
+/* Playlist Section */
+.song-title { font-weight: 600; }
+.play-btn {
+    width: 80%;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.play-btn.playing { background-color: #888; cursor: not-allowed; }
+
+/* Modal (Popup) Styling */
+.modal {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 15;
+}
+.signature { margin-top: 20px; font-style: italic; }
+
+/* Floating Heart Effect */
+.heart-particle {
+    position: fixed;
+    font-size: 24px;
+    pointer-events: none; /* Can't click on the heart */
+    animation: floatUp 1s ease-out forwards;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100px) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* --- NEW: Game Styling --- */
+#play-game-btn, #start-game-btn, #restart-game-btn {
+    padding: 12px 25px;
+    border: none;
+    background: var(--primary-color);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.game-modal-content {
+    max-width: 400px;
+}
+
+#game-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+#game-area {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-color: #fde4ec;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.game-item {
+    position: absolute;
+    font-size: 30px;
+    cursor: pointer;
+    user-select: none;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+#game-end-screen {
+    text-align: center;
+}
