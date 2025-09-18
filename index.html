@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Letter For You</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="envelope-screen">
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <div class="letter">
+                    <div class="text">A letter for you...</div>
+                </div>
+            </div>
+            <div class="heart-button"></div>
+        </div>
+        <button id="open-btn">✨ Click to open ✨</button>
+    </div>
+
+    <div id="main-content" class="hidden">
+        <header>
+            <h1>to my bhavya</h1>
+            <p>See what I have made for youu</p>
+        </header>
+
+        <section class="card">
+            <button id="read-letter-btn">💌 Read My Letter</button>
+        </section>
+        
+        <section class="card">
+            <h2>if we are cats</h2>
+            <p>Swipe to see more ✨</p>
+            <div class="slider">
+                <div class="slide">
+                    <img src="photo1.png" alt="Special Moment 1"> 
+                    <p>sare din Masti karte😋😋</p>
+                </div>
+                <div class="slide">
+                    <img src="photo2.png" alt="Special Moment 2">
+                    <p>we are perfect duo</p>
+                </div>
+                <div class="slide">
+                    <img src="photo3.png" alt="Special Moment 3">
+                    <p>t am batman 🗿🕺</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="card">
+            <h2>Little Notes From My Heart ❤️</h2>
+            <p>Click on any note to see the love behind it!</p>
+            <div class="notes-grid">
+                <button class="note" data-message="You make every day brighter ☀️">You make every day brighter</button>
+                <button class="note" data-message="You're my favorite person 🥰">You're my favorite person</button>
+                <button class="note" data-message="I promise to do better ✨">I promise to do better</button>
+            </div>
+        </section>
+        
+        <section class="card">
+            <h2>Playlist For You 🎵</h2>
+            <p>Songs dedicated to you</p>
+            <div class="slider" id="playlist-slider">
+                <div class="song-card">
+                    <img src="song1.jpg" alt="Album Art 1">
+                    <p class="song-title">Dil Ka Jo Haal Hai</p>
+                    <audio src="https://files.catbox.moe/3h5x9d.mp3" class="audio-player"></audio>
+                    <button class="play-btn">Play</button>
+                </div>
+                <div class="song-card">
+                    <img src="song2.jpg" alt="Album Art 2">
+                    <p class="song-title">Snowman</p>
+                    <audio src="https://files.catbox.moe/3dmtpl.mp3" class="audio-player"></audio>
+                    <button class="play-btn">Play</button>
+                </div>
+                <div class="song-card">
+                    <img src="song3.jpg" alt="Album Art 3">
+                    <p class="song-title">Ankhon se Batana</p>
+                    <audio src="https://files.catbox.moe/0irt05.mp3" class="audio-player"></audio>
+                    <button class="play-btn">Play</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Play a Game! 💖</h2>
+            <button id="play-game-btn">Catch some hearts to unlock a special message</button>
+        </section>
+    </div>
+
+    <div id="letter-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn letter-close">&times;</span>
+            <h2>❤️ my Kuchupuchu bhavya ❤️</h2>
+            <p>"mujhe pata hai ki me acha bestfriend nhi Tumhare or abhi ache friend honge but mere liye sirf tu meri sabse pyari Best friend ho"</p>
+            <div class="signature">
+                With all my love,<br>
+                Yours sincerely,<br>
+                shivshant
+            </div>
+        </div>
+    </div>
+
+    <div id="game-modal" class="modal hidden">
+        <div class="modal-content game-modal-content">
+            <span class="close-btn game-close">&times;</span>
+            <div id="game-start-screen">
+                <h2>Catch Hearts!</h2>
+                <p>Catch 15 hearts before the time runs out!</p>
+                <button id="start-game-btn">Start Game</button>
+            </div>
+            <div id="game-play-screen" class="hidden">
+                <div id="game-header">
+                    <span id="score-display">Score: 0/15</span>
+                    <span id="timer-display">Time: 30s</span>
+                </div>
+                <div id="game-area"></div>
+            </div>
+            <div id="game-end-screen" class="hidden">
+                <h2 id="game-end-title">Game Over</h2>
+                <p id="game-end-message">You did it! Here is your special message.</p>
+                <button id="restart-game-btn">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
